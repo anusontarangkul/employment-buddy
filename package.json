@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/anusontarangkul/employment-buddy/issues"
   },
-  "homepage": "https://github.com/anusontarangkul/employment-buddy#readme"
+  "homepage": "https://github.com/anusontarangkul/employment-buddy#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "sequelize": "^6.3.5"
+  }
 }
