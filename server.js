@@ -15,6 +15,13 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+// =============================================================
+//Passport
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+// initializes passport 
+app.use(passport.initialize());
+app.use(passport.session());
+// =============================================================
 // Routes
 // =============================================================
 // require("./routes/api-routes.js")(app);
