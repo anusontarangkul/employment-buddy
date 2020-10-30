@@ -16,9 +16,18 @@
   height: 100%;
 }
 
-.title-main {
-  font-size: 8vw;
+@media only screen and (min-width: 600px) {
+  .title-main {
+    font-size: 6rem;
+  }
 }
+
+@media only screen and (max-width: 600px) {
+  .title-main {
+    font-size: 4rem;
+  }
+}
+
 .body-position {
   margin-top: -25%;
 }
@@ -30,4 +39,26 @@
 
 .button-main {
   margin-right: ;
+}
+
+@media only screen and (min-width: 768px) {
+  .card-login {
+    min-height: 60vh;
+    margin-top: 10%;
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card-login {
+    min-height: 60vh;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+.login-title {
+  font-size: 3rem;
 }
