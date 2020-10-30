@@ -1,0 +1,64 @@
+.nav-style {
+  height: 4rem;
+}
+
+.nav-button {
+  margin-right: 2rem;
+  margin-left: 1rem;
+}
+
+.nav-logo {
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.section-main {
+  height: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .title-main {
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .title-main {
+    font-size: 4rem;
+  }
+}
+
+.body-position {
+  margin-top: -25%;
+}
+/* @media only screen and (max-width: 520px) {
+  .title-main {
+    font-size: 2rem;
+  }
+} */
+
+.button-main {
+  margin-right: ;
+}
+
+@media only screen and (min-width: 768px) {
+  .card-login {
+    min-height: 60vh;
+    margin-top: 10%;
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card-login {
+    min-height: 60vh;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+.login-title {
+  font-size: 3rem;
+}
