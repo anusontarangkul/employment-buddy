@@ -4,8 +4,30 @@
 
 .nav-button {
   margin-right: 2rem;
+  margin-left: 1rem;
 }
 
-.nav-sign {
-  margin-right: 14rem;
+.nav-logo {
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.section-main {
+  height: 100%;
+}
+
+.title-main {
+  font-size: 8vw;
+}
+.body-position {
+  margin-top: -25%;
+}
+/* @media only screen and (max-width: 520px) {
+  .title-main {
+    font-size: 2rem;
+  }
+} */
+
+.button-main {
+  margin-right: ;
 }
