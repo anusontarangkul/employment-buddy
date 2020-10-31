@@ -6,11 +6,13 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-    />
+      />
+    <link href="../node_modules/dragula/dist/dragula.min.css" rel="stylesheet" /> 
     <link rel="stylesheet" href="../css/style.css" />
     <title>Employment Buddy</title>
   </head>
   <body>
+<script src="../node_modules/dragula/dist/dragula.min.js"></script>
     <nav
       class="navbar has-background-black nav-style"
       role="navigation"
@@ -55,7 +57,7 @@
         <button id="new-job-DOM">New Job</button>
       </div>
       <div class="columns wrapper job-board">
-        <div id="applied-DOM" class="column container border-styling">
+        <div id="applied-DOM" class="column container border-styling dragula-container">
           <div class="job-card-DOM card">
             <div class="card-content">
               <p>Company: Apple</p>
@@ -66,13 +68,13 @@
           </div>
         </div>
 
-        <div id="phone-DOM" class="column container border-styling">
-          <div class="job-card-DOM">item 2</div>
+        <div id="phone-DOM" class="column container border-styling dragula-container">
+          <div class="job-card-DOM"></div>
         </div>
-        <div id="interviewing-DOM" class="column container border-styling">
+        <div id="interviewing-DOM" class="column container border-styling dragula-container">
           <div class="job-card-DOM">item 3</div>
         </div>
-        <div id="offer-DOM" class="column container border-styling">
+        <div id="offer-DOM" class="column container border-styling dragula-container">
           <div class="job-card-DOM">item 4</div>
         </div>
       </div>
@@ -108,7 +110,8 @@
         </div>
       </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/jobs.js"></script>
+
+<script src=“https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js”></script>
+<script src="./js/jobs.js"></script>
   </body>
 </html>
