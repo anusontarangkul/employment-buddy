@@ -40,12 +40,12 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a
+              <a href="/signup"
                 class="button has-background-grey-light nav-button has-text-weight-bold"
               >
                 Sign up
               </a>
-              <a
+              <a href="/login"
                 class="button has-background-grey-light nav-button has-text-weight-bold"
               >
                 Log in
@@ -70,15 +70,18 @@
           /><br /><br />
           <label for="password">Password:</label>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             autocomplete="off"
           /><br /><br />
-          <button>Login</button>
+          <button id = "login-button">Login</button>
+          <div id = "alert"></div>
           <p>Forgot your password?</p>
         </div>
       </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/login.js"></script>
   </body>
 </html>
