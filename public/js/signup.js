@@ -19,7 +19,7 @@ $(document).ready(function() {
             })
             .then(function(data) {
                 console.log("sign up success");
-                //window.location.replace("/jobs");
+                window.location.replace("/jobs");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
             .catch(function(err){

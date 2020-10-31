@@ -19,9 +19,10 @@ $(document).ready(function() {
             password: userData.password
             })
             .then(function() {
-                //window.location.replace("/members");
+
                 // If there's an error, log the error
                 console.log("signed in!!");
+                window.location.replace("/jobs");
             })
             .catch(function(err) {
                 console.log(err);
