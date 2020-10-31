@@ -19,17 +19,18 @@ app.post("/api/signup", function(req, res) {
         });
     });
 
-app.post("/api/user/:id/jobs", function(req, res){
+app.post("/api/user/jobs", function(req, res){
+    //console.log(req.user.id);
     db.Job.create({
         title: req.body.title,
         company: req.body.company,
         status: req.body.status,
-        userId: req.params.id, 
+        UserId: req.user.id, 
      
     }).then(function(results){
         res.json(results)
     })
-})    
+});   
 
 app.get("/api/user/:id/jobs", function(req, res){
     db.Job.findAll({ 
@@ -39,7 +40,7 @@ app.get("/api/user/:id/jobs", function(req, res){
     }).then(function(results){
         res.json(results);
     })
-})
+});
 
 
 

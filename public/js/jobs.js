@@ -60,3 +60,30 @@ mdl.addEventListener('modal:show', function () {
 mdl.addEventListener("modal:close", function () {
     console.log("closed")
 })
+
+$("#submitJob").on("click", function(event) {
+    console.log("makeing job");
+    var newCompany = $("#new-company").val().trim();
+    var newTitle = $("#new-title").val().trim();
+    console.log(newCompany);
+    console.log(newTitle);
+
+    if (newCompany === "" || newTitle === "") {
+        return;
+    }
+    else{
+        $.post("/api/user/jobs", {
+            title: newTitle,
+            company: newCompany,
+            status: "applied"
+            })
+            .then(function(data) {
+                console.log("added job");
+                //window.location.reload();
+            })
+            .catch(function(err){
+                console.log(err);
+            });
+    }
+
+});
