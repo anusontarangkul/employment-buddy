@@ -46,8 +46,6 @@ $(document).ready(function(){
             });
     }
 
-
-    
     class BulmaModal {
         constructor(selector) {
             this.elem = document.querySelector(selector)
@@ -134,7 +132,7 @@ $(document).ready(function(){
                     console.log(err);
                 });
         }
-        renderCards();
+        location.reload();
 
     });
 
@@ -143,11 +141,9 @@ $(document).ready(function(){
             console.log("thing")
             console.log(data);
             for(i=0; i<data.length; i++){
-                var toSplitDate = data[i].createdAt;
-                var splitDate = toSplitDate.split("");
-                var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3]
-                //console.log(date);
-                var card = makeCard(data[i].id, data[i].title, data[i].company, data[i].status, date);
+                var createdDate = formatDate(data[i].createdAt);
+                var updatedDate = formatDate(data[i].updatedAt);
+                var card = makeCard(data[i].id, data[i].title, data[i].company, data[i].status, createdDate, updatedDate);
                 //console.log(card);
                 if(data[i].status ==="applied"){
                     $("#applied-DOM").append(card);
@@ -168,17 +164,22 @@ $(document).ready(function(){
         });
     };
 
-    function makeCard(id, title, company, status, createdAt){
+    function makeCard(id, title, company, status, createdAt, updatedDate){
         var card = `
         <div id = '${id}'class="job-card-DOM card">
             <div class="card-content">
                 <p>Company: ${company}</p>
                 <p>Title: ${title}</p>
                 <p>Date Applied: ${createdAt}</p>
-                <p>${status}</p>
+                <p>${status}: ${updatedDate}</p>
             </div>
         </div>
         `;
         return card;
     };
 });
+function formatDate(toSplitDate){
+    var splitDate = toSplitDate.split("");
+    var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3];
+    return date;
+}
