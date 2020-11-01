@@ -32,16 +32,27 @@ app.post("/api/user/jobs", function(req, res){
     })
 });   
 
-app.get("/api/user/:id/jobs", function(req, res){
+app.get("/api/user_data", function(req, res){
     db.Job.findAll({ 
       where:{
-      userId: req.params.id,  
+      UserId: req.user.id,  
     }     
     }).then(function(results){
         res.json(results);
     })
 });
 
+app.put("/api/update_status", function(req, res){
+    db.Job.update(
+        { status: req.body.status },
+        { where: { id: req.body.id } }
+      ).then(function() {
+
+        })
+        .catch(function(err) {
+            
+        });
+});
 
 
 
