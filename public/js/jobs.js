@@ -177,9 +177,14 @@ $(document).ready(function(){
         `;
         return card;
     };
+
+    function formatDate(toSplitDate){
+        var splitDate = toSplitDate.split("");
+        var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3];
+        return date;
+    }
+
+
+
+    
 });
-function formatDate(toSplitDate){
-    var splitDate = toSplitDate.split("");
-    var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3];
-    return date;
-}
