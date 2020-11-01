@@ -1,106 +1,153 @@
 
-dragula([document.querySelector('#applied-DOM'), 
-        document.querySelector('#phone-DOM'),
-        document.querySelector('#interviewing-DOM'),
-        document.querySelector('#offer-DOM'),
-        document.querySelector('#rejected-DOM')])
-    
-// var drake = dragula([document.querySelector('#left'), document.querySelector('#right')]);
+$(document).ready(function(){
+    renderCards();
+    var drake = dragula([document.querySelector('#applied-DOM'), 
+            document.querySelector('#phone-DOM'),
+            document.querySelector('#interviewing-DOM'),
+            document.querySelector('#offer-DOM'),
+            document.querySelector('#rejected-DOM')])
+        
+    // var drake = dragula([document.querySelector('#left'), document.querySelector('#right')]);
 
 
-//     drake.on('drop', function(el, target, source, sibling){
-//         // do something
-//       });
+    //     drake.on('drop', function(el, target, source, sibling){
+    //         // do something
+    //       });
 
-    
+        
 
-// });
-class BulmaModal {
-    constructor(selector) {
-        this.elem = document.querySelector(selector)
-        this.close_data()
-    }
+    // });
+    class BulmaModal {
+        constructor(selector) {
+            this.elem = document.querySelector(selector)
+            this.close_data()
+        }
 
-    show() {
-        this.elem.classList.toggle('is-active')
-        this.on_show()
-    }
+        show() {
+            this.elem.classList.toggle('is-active')
+            this.on_show()
+        }
 
-    close() {
-        this.elem.classList.toggle('is-active')
-        this.on_close()
-    }
+        close() {
+            this.elem.classList.toggle('is-active')
+            this.on_close()
+        }
 
-    close_data() {
-        var modalClose = this.elem.querySelectorAll("[data-bulma-modal='close'], .modal-background")
-        var that = this
-        modalClose.forEach(function (e) {
-            e.addEventListener("click", function () {
+        close_data() {
+            var modalClose = this.elem.querySelectorAll("[data-bulma-modal='close'], .modal-background")
+            var that = this
+            modalClose.forEach(function (e) {
+                e.addEventListener("click", function () {
 
-                that.elem.classList.toggle('is-active')
+                    that.elem.classList.toggle('is-active')
 
-                var event = new Event('modal:close')
+                    var event = new Event('modal:close')
 
-                that.elem.dispatchEvent(event);
+                    that.elem.dispatchEvent(event);
+                })
             })
-        })
+        }
+
+        on_show() {
+            var event = new Event('modal:show')
+
+            this.elem.dispatchEvent(event);
+        }
+
+        on_close() {
+            var event = new Event('modal:close')
+
+            this.elem.dispatchEvent(event);
+        }
+
+        addEventListener(event, callback) {
+            this.elem.addEventListener(event, callback)
+        }
     }
 
-    on_show() {
-        var event = new Event('modal:show')
+    var btn = document.querySelector("#new-job-DOM")
+    var mdl = new BulmaModal("#myModal")
 
-        this.elem.dispatchEvent(event);
-    }
+    btn.addEventListener("click", function () {
+        mdl.show()
+    })
 
-    on_close() {
-        var event = new Event('modal:close')
+    mdl.addEventListener('modal:show', function () {
+        console.log("opened")
+    })
 
-        this.elem.dispatchEvent(event);
-    }
+    mdl.addEventListener("modal:close", function () {
+        console.log("closed")
+    })
 
-    addEventListener(event, callback) {
-        this.elem.addEventListener(event, callback)
-    }
-}
+    $("#submitJob").on("click", function(event) {
+        console.log("makeing job");
+        var newCompany = $("#new-company").val().trim();
+        var newTitle = $("#new-title").val().trim();
+        console.log(newCompany);
+        console.log(newTitle);
+        if (newCompany === "" || newTitle === "") {
+            return;
+        }
+        else{
+            $.post("/api/user/jobs", {
+                title: newTitle,
+                company: newCompany,
+                status: "applied"
+                })
+                .then(function(data) {
+                    console.log("added job");
+                    //window.location.reload();
+                })
+                .catch(function(err){
+                    console.log(err);
+                });
+        }
+        renderCards();
 
-var btn = document.querySelector("#new-job-DOM")
-var mdl = new BulmaModal("#myModal")
+    });
 
-btn.addEventListener("click", function () {
-    mdl.show()
-})
+    function renderCards(){
+        $.get("/api/user_data").then(function(data) {
+            console.log("thing")
+            console.log(data);
+            for(i=0; i<data.length; i++){
+                var toSplitDate = data[i].createdAt;
+                var splitDate = toSplitDate.split("");
+                var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3]
+                //console.log(date);
+                var card = makeCard(data[i].id, data[i].title, data[i].company, data[i].status, date);
+                console.log(card);
+                if(data[i].status ==="applied"){
+                    $("#applied-DOM").append(card);
+                }
+                else if(data[i].status ==="phone-screen"){
+                    $("#phone-DOM").append(card);
+                }
+                else if(data[i].status ==="interviewing"){
+                    $("#interviewing-DOM").append(card);
+                }
+                else if(data[i].status ==="offer"){
+                    $("#offer-DOM").append(card);
+                }
+                else if(data[i].status ==="rejected"){
+                    $("#rejected-DOM").append(card);
+                }
+            }
+        });
+    };
 
-mdl.addEventListener('modal:show', function () {
-    console.log("opened")
-})
-
-mdl.addEventListener("modal:close", function () {
-    console.log("closed")
-})
-
-$("#submitJob").on("click", function(event) {
-    console.log("makeing job");
-    var newCompany = $("#new-company").val().trim();
-    var newTitle = $("#new-title").val().trim();
-    console.log(newCompany);
-    console.log(newTitle);
-
-    if (newCompany === "" || newTitle === "") {
-        return;
-    }
-    else{
-        $.post("/api/user/jobs", {
-            title: newTitle,
-            company: newCompany,
-            status: "applied"
-            })
-            .then(function(data) {
-                console.log("added job");
-                //window.location.reload();
-            })
-            .catch(function(err){
-                console.log(err);
-            });
-    }
-
+    function makeCard(id, title, company, status, createdAt){
+        var card = `
+        <div id = '${id}'class="job-card-DOM card">
+            <div class="card-content">
+                <p>Company: ${company}</p>
+                <p>Title: ${title}</p>
+                <p>Date Applied: ${createdAt}</p>
+                <p>${status}</p>
+            </div>
+        </div>
+        `;
+        return card;
+    };
 });
