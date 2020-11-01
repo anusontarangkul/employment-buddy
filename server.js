@@ -1,6 +1,5 @@
 // Sets up the Express App
 // =============================================================
-var drake = require("/node_modules/dragula/dragula.js");
 var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
@@ -17,8 +16,9 @@ app.use(express.json());
 
 // Static directory
 //has to find index.html becasue its in a file
-app.use(express.static("public"));
-
+app.use(express.static(__dirname + '/public'));
+//everything a static folder could be better but works
+app.use(express.static(__dirname + '/'));
 // =============================================================
 //Passport
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
