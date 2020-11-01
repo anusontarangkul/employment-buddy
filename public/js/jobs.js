@@ -1,9 +1,5 @@
 
-
-
-
-
- dragula([document.querySelector('#applied-DOM'), 
+dragula([document.querySelector('#applied-DOM'), 
         document.querySelector('#phone-DOM'),
         document.querySelector('#interviewing-DOM'),
         document.querySelector('#offer-DOM'),
