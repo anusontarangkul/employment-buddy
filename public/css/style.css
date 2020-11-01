@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 .nav-style {
   height: 4rem;
 }
@@ -37,7 +42,6 @@
   }
 } */
 
-
 @media only screen and (min-width: 768px) {
   .card-login {
     min-height: 60vh;
@@ -66,4 +70,33 @@
 
 .border-styling {
   border-style: solid;
+}
+
+.home-info {
+  margin-top: 10rem;
+}
+
+h1 {
+  line-height: 7rem;
+}
+
+.home-text {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+.button-main {
+  margin-top: 1.7rem;
+}
+
+.signup-btn {
+  background-color: hsl(204, 86%, 53%);
+  height: 3rem;
+  width: 10rem;
+}
+
+.login-btn {
+  height: 3rem;
+  width: 10rem;
 }
