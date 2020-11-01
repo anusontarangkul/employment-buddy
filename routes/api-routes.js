@@ -47,11 +47,8 @@ app.put("/api/update_status", function(req, res){
         { status: req.body.status },
         { where: { id: req.body.id } }
       ).then(function() {
-
-        })
-        .catch(function(err) {
-            
-        });
+        res.status(200).end();
+    });
 });
 
 

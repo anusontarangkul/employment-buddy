@@ -5,18 +5,49 @@ $(document).ready(function(){
             document.querySelector('#phone-DOM'),
             document.querySelector('#interviewing-DOM'),
             document.querySelector('#offer-DOM'),
-            document.querySelector('#rejected-DOM')])
+            document.querySelector('#rejected-DOM')]);
         
-    // var drake = dragula([document.querySelector('#left'), document.querySelector('#right')]);
+    drake.on('drop', function(el, target, source, sibling){
+        // console.log(el.id );
+        // console.log(target.id);
+        var id = el.id;
+        var status = target.id;
+        if(status==="applied-DOM"){
+            updateStatus(id, "applied");
+        }
+        else if(status==="phone-DOM"){
+            updateStatus(id, "phone-screen");
+        }
+        else if(status==="interviewing-DOM"){
+            updateStatus(id, "interviewing");
+        }
+        else if(status==="offer-DOM"){
+            updateStatus(id, "offer");
+        }
+        else if(status==="rejected-DOM"){
+            updateStatus(id, "rejected");
+        }
+    });
+    function updateStatus(id, status){
+        $.ajax("/api/update_status", {
+            type: "PUT",
+            data: {
+            id: id,
+            status: status
+            }
+            })
+            .then(function(data) {
+                console.log("status updated");
+                location.reload();
+                //window.location.reload();
+            })
+            .catch(function(err){
+                console.log(err);
+            });
+    }
 
 
-    //     drake.on('drop', function(el, target, source, sibling){
-    //         // do something
-    //       });
-
-        
-
-    // });
+    
     class BulmaModal {
         constructor(selector) {
             this.elem = document.querySelector(selector)
@@ -117,7 +148,7 @@ $(document).ready(function(){
                 var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3]
                 //console.log(date);
                 var card = makeCard(data[i].id, data[i].title, data[i].company, data[i].status, date);
-                console.log(card);
+                //console.log(card);
                 if(data[i].status ==="applied"){
                     $("#applied-DOM").append(card);
                 }
