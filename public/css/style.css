@@ -104,6 +104,7 @@ h1 {
   font-size: 1.3rem;
 }
 
+/* Login Page */
 .wave {
   position: fixed;
   height: 100%;
@@ -154,14 +155,12 @@ form {
   border-bottom: 2px solid #d9d9d9;
 }
 
-/* .input-div:after,
-.input-div:before {
-  content: "";
-  position: absoulte;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background-color: #209ced;
+.input-div.focus {
+  display: grid;
+  grid-template-columns: 7% 93%;
+  margin: 25px 0;
+  padding: 5px 0;
+  border-bottom: 2px solid #209ced;
 }
 
 .input-div:after {
@@ -175,14 +174,20 @@ form {
 .user-input:after,
 .input-div.focus:before {
   width: 50%;
-} */
+}
 
 .input-div.focus > .input-icons > i {
   color: #209ced;
 }
-#user-text {
-  top: -5px;
+
+.input-div.focus > div > h5 {
+  top: -9px;
   font-size: 15px;
+}
+
+.input-div.focus:before,
+.input-div.focus:after {
+  width: 50%;
 }
 
 .user-input {
@@ -245,4 +250,37 @@ form {
 
 .login-btn-page:hover {
   background-position: right;
+}
+
+@media screen and (max-width: 1050px) {
+  .login-container {
+    grid-gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  form {
+    width: 290px;
+  }
+  .login-content h2 {
+    font-size: 2.4rem;
+    margin: 8px 0;
+  }
+  .body-img {
+    width: 400px;
+  }
+  @media screen and (max-width: 900px) {
+    .container-body-login {
+      grid-template-columns: 1fr;
+    }
+    .body-img {
+      display: none;
+    }
+    .wave {
+      display: none;
+    }
+    .login-container {
+      justify-content: center;
+    }
+  }
 }
