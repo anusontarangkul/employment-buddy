@@ -6,21 +6,24 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-      />
-    <link href="../node_modules/dragula/dist/dragula.min.css" rel="stylesheet" /> 
-    <link rel="stylesheet" href="../css/style.css" />
+    />
+    <link
+      href="../node_modules/dragula/dist/dragula.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Employment Buddy</title>
   </head>
   <body>
-<script src="node_modules/dragula/dist/dragula.min.js"></script>
+    <script src="node_modules/dragula/dist/dragula.min.js"></script>
     <nav
-      class="navbar has-background-black nav-style"
+      class="navbar has-background-link nav-style"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
         <a
-          class="navbar-item has-text-weight-bold nav-logo has-text-danger-light"
+          class="navbar-item has-text-weight-bold nav-logo has-text-white"
           href="/"
           >Employment Buddy
         </a>
@@ -43,7 +46,12 @@
           <div class="navbar-item">
             <div class="buttons">
               <a
+<<<<<<< HEAD
                 class="button has-background-light nav-button has-text-weight-bold" href="/logout"
+=======
+                class="button has-background-grey-light nav-button has-text-weight-bold"
+                href="/logout"
+>>>>>>> main
               >
                 Logout
               </a>
@@ -52,32 +60,127 @@
         </div>
       </div>
     </nav>
-    <!-- Counter Card -->
-    <div class="counter card">
-      <div class="card-content">
-        <p id = "appliedCount" > 0</p>
-        <p id = "phoneCount">0</p>
-        <p id = "interviewCount">0</p>
-        <p id = "offerCount">0</p>
-        <p id = "rejectedCount">0</p>
-        <p id = "totalCount" > 0</p>
-        
+    <section class="hero is-fullheight has-background-light">
+      <!-- Counter Card -->
+      <div class="columns dashboard has-background-light">
+        <div class="column">
+          <div class="card card-border">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>No Response</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Phone Screen</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Interviews</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Offers</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Rejected</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Total Applied</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <!-- Containers -->
-    <section class="hero is-fullheight has-background-dark">
       <div>
-        <button id="new-job-DOM">New Job</button>
+        <button
+          class="new-job-button has-text-weight-bold has-text-centered"
+          id="new-job-DOM"
+        >
+          Add New Job
+        </button>
       </div>
+
+      <!-- <div class="counter card">
+      <div class="card-content">
+        <p id="appliedCount">0</p>
+        <p id="phoneCount">0</p>
+        <p id="interviewCount">0</p>
+        <p id="offerCount">0</p>
+        <p id="rejectedCount">0</p>
+        <p id="totalCount">0</p>
+      </div>
+    </div> -->
+      <!-- Containers -->
+      <!-- <section class="hero is-fullheight has-background-dark"> -->
       <div class="columns wrapper job-board">
-        <div id="applied-DOM" class="column container border-styling dragula-container">
+        <div
+          id="applied-DOM"
+          class="column container border-styling dragula-container"
+        >
+          <h2 class="has-text-centered">Applied Jobs</h2>
         </div>
-        <div id="phone-DOM" class="column container border-styling dragula-container">
-        </div>
-        <div id="interviewing-DOM" class="column container border-styling dragula-container">
-        </div>
-        <div id="offer-DOM" class="column container border-styling dragula-container">
-        </div>
+        <div
+          id="phone-DOM"
+          class="column container border-styling dragula-container"
+        ></div>
+        <div
+          id="interviewing-DOM"
+          class="column container border-styling dragula-container"
+        ></div>
+        <div
+          id="offer-DOM"
+          class="column container border-styling dragula-container"
+        ></div>
       </div>
       <div class="columns wrapper">
         <div id="rejected-DOM" class="column container border-styling">
@@ -89,7 +192,7 @@
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">New Job</p>
+            <p class="modal-card-title">New Job Details</p>
             <button
               class="delete"
               aria-label="close"
@@ -100,21 +203,27 @@
             <form>
               <label for="new-company">Company:</label>
               <input type="text" id="new-company" name="new-company" />
-              <br>
-              <br>
+              <br />
+              <br />
               <label for="new-title">Job Title:</label>
               <input type="text" id="new-title" name="new-title" />
             </form>
           </section>
           <footer class="modal-card-foot">
+<<<<<<< HEAD
             <button id = "submitJob" class="button is-primary">Save changes</button>
+=======
+            <button id="submitJob" class="button is-success">
+              Add New Job
+            </button>
+>>>>>>> main
             <button class="button" data-bulma-modal="close">Cancel</button>
           </footer>
         </div>
       </div>
     </section>
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/js/jobs.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/js/jobs.js"></script>
   </body>
 </html>
