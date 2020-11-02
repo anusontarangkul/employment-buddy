@@ -6,21 +6,24 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-      />
-    <link href="../node_modules/dragula/dist/dragula.min.css" rel="stylesheet" /> 
-    <link rel="stylesheet" href="../css/style.css" />
+    />
+    <link
+      href="../node_modules/dragula/dist/dragula.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Employment Buddy</title>
   </head>
   <body>
-<script src="node_modules/dragula/dist/dragula.min.js"></script>
+    <script src="node_modules/dragula/dist/dragula.min.js"></script>
     <nav
-      class="navbar has-background-black nav-style"
+      class="navbar has-background-link nav-style"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
         <a
-          class="navbar-item has-text-weight-bold nav-logo has-text-danger-light"
+          class="navbar-item has-text-weight-bold nav-logo has-text-white"
           href="https://bulma.io"
           >Employment Buddy
         </a>
@@ -43,7 +46,8 @@
           <div class="navbar-item">
             <div class="buttons">
               <a
-                class="button has-background-grey-light nav-button has-text-weight-bold" href="/logout"
+                class="button has-background-grey-light nav-button has-text-weight-bold"
+                href="/logout"
               >
                 Logout
               </a>
@@ -52,23 +56,104 @@
         </div>
       </div>
     </nav>
-    <div class="counter card">
-      <div class="card-content">
-        <p id = "appliedCount" > 0</p>
-        <p id = "phoneCount">0</p>
-        <p id = "interviewCount">0</p>
-        <p id = "offerCount">0</p>
-        <p id = "rejectedCount">0</p>
-        <p id = "totalCount" > 0</p>
-        
+    <div class="columns">
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">
+              <p>No Response</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="has-text-centered" id="appliedCount">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">
+              <p>Phone Screen</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="has-text-centered" id="appliedCount">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">
+              <p>Interviews</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="has-text-centered" id="appliedCount">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">
+              <p>Offers</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="has-text-centered" id="appliedCount">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">
+              <p>Rejected</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="has-text-centered" id="appliedCount">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-title is-centered">
+              <p>Total Applied</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="has-text-centered" id="appliedCount">0</p>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- <div class="counter card">
+      <div class="card-content">
+        <p id="appliedCount">No Response: 0</p>
+        <p id="phoneCount">Phone Screens: 0</p>
+        <p id="interviewCount">Interviews: 0</p>
+        <p id="offerCount">Offers: 0</p>
+        <p id="rejectedCount">Rejected: 0</p>
+        <p id="totalCount">Total Applied: 0</p>
+      </div>
+    </div> -->
     <section class="hero is-fullheight has-background-dark">
       <div>
         <button id="new-job-DOM">New Job</button>
       </div>
       <div class="columns wrapper job-board">
-        <div id="applied-DOM" class="column container border-styling dragula-container">
+        <div
+          id="applied-DOM"
+          class="column container border-styling dragula-container"
+        >
           <!--<div class="job-card-DOM card">
             <div class="card-content">
               <p>Company: Apple</p>
@@ -79,13 +164,22 @@
           </div>-->
         </div>
 
-        <div id="phone-DOM" class="column container border-styling dragula-container">
+        <div
+          id="phone-DOM"
+          class="column container border-styling dragula-container"
+        >
           <!--<div class="job-card-DOM"></div>-->
         </div>
-        <div id="interviewing-DOM" class="column container border-styling dragula-container">
+        <div
+          id="interviewing-DOM"
+          class="column container border-styling dragula-container"
+        >
           <!--<div class="job-card-DOM">item 3</div>-->
         </div>
-        <div id="offer-DOM" class="column container border-styling dragula-container">
+        <div
+          id="offer-DOM"
+          class="column container border-styling dragula-container"
+        >
           <!--<div class="job-card-DOM">item 4</div>-->
         </div>
       </div>
@@ -115,14 +209,16 @@
             </form>
           </section>
           <footer class="modal-card-foot">
-            <button id = "submitJob" class="button is-success">Save changes</button>
+            <button id="submitJob" class="button is-success">
+              Save changes
+            </button>
             <button class="button" data-bulma-modal="close">Cancel</button>
           </footer>
         </div>
       </div>
     </section>
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/js/jobs.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/js/jobs.js"></script>
   </body>
 </html>
