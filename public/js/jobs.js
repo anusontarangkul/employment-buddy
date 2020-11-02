@@ -100,13 +100,13 @@ $(document).ready(function () {
         mdl.show()
     })
 
-    mdl.addEventListener('modal:show', function () {
-        console.log("opened")
-    })
+    // mdl.addEventListener('modal:show', function () {
+    //     console.log("opened")
+    // })
 
-    mdl.addEventListener("modal:close", function () {
-        console.log("closed")
-    })
+    // mdl.addEventListener("modal:close", function () {
+    //     console.log("closed")
+    // })
     //creating a new job
     $("#submitJob").on("click", function (event) {
         console.log("makeing job");

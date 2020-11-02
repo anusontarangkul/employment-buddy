@@ -66,7 +66,8 @@
 }
 
 .job-board {
-  margin-top: 3rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .border-styling {
@@ -331,8 +332,8 @@ form {
 }
 
 .new-job-button {
-  height: 3rem;
-  width: 10rem;
+  height: 4.5rem;
+  width: 14rem;
   font-size: 1.3rem;
   border-radius: 25px;
   outline: none;
