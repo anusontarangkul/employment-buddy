@@ -341,3 +341,7 @@ form {
   margin-left: 2rem;
   background-image: linear-gradient(to right, #209ced, #6acefd, #209ced);
 }
+
+.status-headers {
+  font-size: 2rem;
+}
