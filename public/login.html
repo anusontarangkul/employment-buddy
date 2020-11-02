@@ -7,18 +7,18 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Employment Buddy</title>
   </head>
   <body>
     <nav
-      class="navbar has-background-black nav-style"
+      class="navbar has-background-link nav-style"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
         <a
-          class="navbar-item has-text-weight-bold nav-logo has-text-danger-light"
+          class="navbar-item has-text-weight-bold nav-logo has-text-white"
           href="https://bulma.io"
           >Employment Buddy
         </a>
@@ -39,13 +39,12 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="buttons">
-              <a href="/signup"
-                class="button has-background-grey-light nav-button has-text-weight-bold"
-              >
+            <div class="buttons nav-signup">
+              <a href="/signup" class="button hnav-button has-text-weight-bold">
                 Sign up
               </a>
-              <a href="/login"
+              <a
+                href="/login"
                 class="button has-background-grey-light nav-button has-text-weight-bold"
               >
                 Log in
@@ -55,7 +54,8 @@
         </div>
       </div>
     </nav>
-    <section class="hero is-fullheight has-background-dark section-main">
+
+    <!-- <section class="hero is-fullheight has-background-light section-main">
       <div class="card card-login">
         <div class="card-header-title is-centered">
           <h2 class="login-title has-text-weight-bold">Login</h2>
@@ -75,13 +75,50 @@
             name="password"
             autocomplete="off"
           /><br /><br />
-          <button id = "login-button">Login</button>
-          <div id = "alert"></div>
+          <button id="login-button">Login</button>
+          <div id="alert"></div>
           <p>Forgot your password?</p>
         </div>
       </div>
-    </section>
+    </section> -->
+    <img class="wave" src="images/wave-login.png" />
+    <div class="container-body-login">
+      <div class="img body-img">
+        <img src="images/body-login.svg" />
+      </div>
+      <div class="login-container">
+        <form action="index.html">
+          <img class="avatar" src="images/profile-login.svg" />
+          <h2 class="login-welcome has-text-weight-bold">Welcome!</h2>
+          <div class="input-div user-input">
+            <div class="input-icons">
+              <i class="fas fa-user user-icon"></i>
+            </div>
+            <div>
+              <h5 id="user-text">Username</h5>
+              <input class="input" type="text" />
+            </div>
+          </div>
+          <div class="input-div password-div">
+            <div class="input-icons">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div>
+              <h5>Password</h5>
+              <input class="input" type="password" />
+            </div>
+          </div>
+          <button
+            id="login-button"
+            class="login-btn-page has-text-weight-bold has-text-centered"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/login.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   </body>
 </html>
