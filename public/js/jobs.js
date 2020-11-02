@@ -1,46 +1,46 @@
 
-$(document).ready(function(){
+$(document).ready(function () {
     renderCards();
     //Registering Dragula drag and drop with our containers
-    var drake = dragula([document.querySelector('#applied-DOM'), 
-            document.querySelector('#phone-DOM'),
-            document.querySelector('#interviewing-DOM'),
-            document.querySelector('#offer-DOM'),
-            document.querySelector('#rejected-DOM')]);
-      //adding the "drop" event listener for updating our job status
-    drake.on('drop', function(el, target, source, sibling){
+    var drake = dragula([document.querySelector('#applied-DOM'),
+    document.querySelector('#phone-DOM'),
+    document.querySelector('#interviewing-DOM'),
+    document.querySelector('#offer-DOM'),
+    document.querySelector('#rejected-DOM')]);
+    //adding the "drop" event listener for updating our job status
+    drake.on('drop', function (el, target, source, sibling) {
         var id = el.id;
         var status = target.id;
-        if(status==="applied-DOM"){
+        if (status === "applied-DOM") {
             updateStatus(id, "applied");
         }
-        else if(status==="phone-DOM"){
+        else if (status === "phone-DOM") {
             updateStatus(id, "phone-screen");
         }
-        else if(status==="interviewing-DOM"){
+        else if (status === "interviewing-DOM") {
             updateStatus(id, "interviewing");
         }
-        else if(status==="offer-DOM"){
+        else if (status === "offer-DOM") {
             updateStatus(id, "offer");
         }
-        else if(status==="rejected-DOM"){
+        else if (status === "rejected-DOM") {
             updateStatus(id, "rejected");
         }
     });
     //"PUT" ajax call to our SQL server for updating job status
-    function updateStatus(id, status){
+    function updateStatus(id, status) {
         $.ajax("/api/update_status", {
             type: "PUT",
             data: {
-            id: id,
-            status: status
+                id: id,
+                status: status
             }
-            })
-            .then(function(data) {
+        })
+            .then(function (data) {
                 console.log("status updated");
                 location.reload();
             })
-            .catch(function(err){
+            .catch(function (err) {
                 console.log(err);
             });
     }
@@ -100,32 +100,32 @@ $(document).ready(function(){
         mdl.show()
     })
 
-    mdl.addEventListener('modal:show', function () {
-        console.log("opened")
-    })
+    // mdl.addEventListener('modal:show', function () {
+    //     console.log("opened")
+    // })
 
-    mdl.addEventListener("modal:close", function () {
-        console.log("closed")
-    })
-//creating a new job
-    $("#submitJob").on("click", function(event) {
+    // mdl.addEventListener("modal:close", function () {
+    //     console.log("closed")
+    // })
+    //creating a new job
+    $("#submitJob").on("click", function (event) {
         console.log("makeing job");
         var newCompany = $("#new-company").val().trim();
         var newTitle = $("#new-title").val().trim();
         if (newCompany === "" || newTitle === "") {
             return;
         }
-        else{
+        else {
             $.post("/api/user/jobs", {
                 title: newTitle,
                 company: newCompany,
                 status: "applied"
-                })
-                .then(function(data) {
+            })
+                .then(function (data) {
                     console.log("added job");
-                    
+
                 })
-                .catch(function(err){
+                .catch(function (err) {
                     console.log(err);
                 });
         }
@@ -133,68 +133,75 @@ $(document).ready(function(){
 
     });
     //creating a new card 
-    function renderCards(){
-        $.get("/api/user_data").then(function(data) {
+    function renderCards() {
+        $.get("/api/user_data").then(function (data) {
             console.log(data);
             countByStatus(data);
-            for(i=0; i<data.length; i++){
+            for (i = 0; i < data.length; i++) {
                 var createdDate = formatDate(data[i].createdAt);
                 var updatedDate = formatDate(data[i].updatedAt);
                 var card = makeCard(data[i].id, data[i].title, data[i].company, data[i].status, createdDate, updatedDate);
                 //console.log(card);
-                if(data[i].status ==="applied"){
+                if (data[i].status === "applied") {
                     $("#applied-DOM").append(card);
                 }
-                else if(data[i].status ==="phone-screen"){
+                else if (data[i].status === "phone-screen") {
                     $("#phone-DOM").append(card);
                 }
-                else if(data[i].status ==="interviewing"){
+                else if (data[i].status === "interviewing") {
                     $("#interviewing-DOM").append(card);
                 }
-                else if(data[i].status ==="offer"){
+                else if (data[i].status === "offer") {
                     $("#offer-DOM").append(card);
                 }
-                else if(data[i].status ==="rejected"){
+                else if (data[i].status === "rejected") {
                     $("#rejected-DOM").append(card);
                 }
             }
         });
     };
     //Status counter to track how many jobs we have in each position
-    function countByStatus(data){
+    function countByStatus(data) {
         var totalCount = data.length;
         var appliedCounter = 0;
-        var phoneCounter  = 0;
+        var phoneCounter = 0;
         var interviewCounter = 0;
         var offerCounter = 0;
         var rejectedCounter = 0;
-        for(var i = 0; i<data.length; i++){
-            if(data[i].status === "applied"){
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].status === "applied") {
                 appliedCounter++;
             }
-            else if(data[i].status === "phone-screen"){
+            else if (data[i].status === "phone-screen") {
                 phoneCounter++;
             }
-            else if(data[i].status === "interviewing"){
+            else if (data[i].status === "interviewing") {
                 interviewCounter++;
             }
-            else if(data[i].status === "offer"){
+            else if (data[i].status === "offer") {
                 offerCounter++;
             }
-            else if(data[i].status === "rejected"){
+            else if (data[i].status === "rejected") {
                 rejectedCounter++;
             }
-           //adding text to fields in the job card 
+            //adding text to fields in the job card 
         }
-        $("#appliedCount").text("No Response: "+appliedCounter);
-        $("#phoneCount").text("Phone Interviews: "+phoneCounter);
-        $("#interviewCount").text("Interviews: "+interviewCounter);
-        $("#offerCount").text("Offer: "+offerCounter);
-        $("#rejectedCount").text("Rejected: "+rejectedCounter);
-        $("#totalCount").text("Total Applied: "+totalCount);
+        $("#appliedCount").text(appliedCounter);
+        $("#phoneCount").text(phoneCounter);
+        $("#interviewCount").text(interviewCounter);
+        $("#offerCount").text(offerCounter);
+        $("#rejectedCount").text(rejectedCounter);
+        $("#totalCount").text(totalCount);
+
+        // $("#appliedCount").text("No Response: "+appliedCounter);
+        // $("#phoneCount").text("Phone Interviews: "+phoneCounter);
+        // $("#interviewCount").text("Interviews: "+interviewCounter);
+        // $("#offerCount").text("Offer: "+offerCounter);
+        // $("#rejectedCount").text("Rejected: "+rejectedCounter);
+        // $("#totalCount").text("Total Applied: "+totalCount);
     }
     //defining the HTMl structure of our dynamically created cards
-    function makeCard(id, title, company, status, createdAt, updatedDate){
+    function makeCard(id, title, company, status, createdAt, updatedDate) {
         var card = `
         <div id = '${id}'class="job-card-DOM card">
             <div class="card-content">
@@ -208,13 +215,13 @@ $(document).ready(function(){
         return card;
     };
     //formatting the date provided with passport to a readable level
-    function formatDate(toSplitDate){
+    function formatDate(toSplitDate) {
         var splitDate = toSplitDate.split("");
-        var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3];
+        var date = splitDate[5] + splitDate[6] + "/" + splitDate[8] + splitDate[9] + "/" + splitDate[2] + splitDate[3];
         return date;
     }
 
 
 
-    
+
 });
