@@ -202,16 +202,29 @@ $(document).ready(function () {
     }
     //defining the HTMl structure of our dynamically created cards
     function makeCard(id, title, company, status, createdAt, updatedDate) {
-        var card = `
-        <div id = '${id}'class="job-card-DOM card">
-            <div class="card-content">
-                <p>Company: ${company}</p>
-                <p>Title: ${title}</p>
-                <p>Date Applied: ${createdAt}</p>
-                <p>${status}: ${updatedDate}</p>
+        // var card = `
+        // <div id = '${id}'class="job-card-DOM card">
+        //     <div class="card-content">
+        //         <p>Company: ${company}</p>
+        //         <p>Title: ${title}</p>
+        //         <p>Date Applied: ${createdAt}</p>
+        //         <p>${status}: ${updatedDate}</p>
+        //     </div>
+        // </div>
+        // `;
+
+        var card = ` <div id = '${id}' class="card job-card-DOM">
+          <div class="card-header has-background-danger">
+            <div class="card-header-title is-centered">
+              <p>${company}</p>
             </div>
-        </div>
-        `;
+          </div>
+          <div class="card-content">
+            <p>Title: ${title}</p>
+            <p>Date Applied: ${createdAt}</p>
+            <p>${status}: ${updatedDate}</p>
+          </div>
+        </div>`
         return card;
     };
     //formatting the date provided with passport to a readable level
