@@ -154,6 +154,37 @@ form {
   border-bottom: 2px solid #d9d9d9;
 }
 
+/* .input-div:after,
+.input-div:before {
+  content: "";
+  position: absoulte;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #209ced;
+}
+
+.input-div:after {
+  right: 50%;
+}
+
+.input-div:before {
+  left: 50%;
+}
+
+.user-input:after,
+.input-div.focus:before {
+  width: 50%;
+} */
+
+.input-div.focus > .input-icons > i {
+  color: #209ced;
+}
+#user-text {
+  top: -5px;
+  font-size: 15px;
+}
+
 .user-input {
   margin-top: 0;
 }
@@ -190,10 +221,28 @@ form {
   height: 100%;
   top: 0;
   left: 0;
-  border: none;
+  border: 0px;
   outline: none;
   background: none;
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
   color: #555;
+}
+
+.login-btn-page {
+  display: block;
+  width: 75%;
+  height: 3rem;
+  border-radius: 25px;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  outline: none;
+  cursor: pointer;
+  background-image: linear-gradient(to right, #209ced, #6acefd, #209ced);
+  transition: 0.5s;
+  align-items: center;
+}
+
+.login-btn-page:hover {
+  background-position: right;
 }

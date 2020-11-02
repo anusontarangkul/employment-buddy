@@ -92,10 +92,10 @@
           <h2 class="login-welcome has-text-weight-bold">Welcome!</h2>
           <div class="input-div user-input">
             <div class="input-icons">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user user-icon"></i>
             </div>
             <div>
-              <h5>Username</h5>
+              <h5 id="user-text">Username</h5>
               <input class="input" type="text" />
             </div>
           </div>
@@ -108,7 +108,12 @@
               <input class="input" type="password" />
             </div>
           </div>
-          <input type="submit" class="login-btn" value="Login" />
+          <button
+            id="login-button"
+            class="login-btn-page has-text-weight-bold has-text-centered"
+          >
+            Login
+          </button>
         </form>
       </div>
     </div>
