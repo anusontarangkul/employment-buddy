@@ -37,6 +37,8 @@ $(document).ready(function () {
 
     });
 
+    // Login Animation
+
     const inputs = document.querySelectorAll(".input");
 
 
