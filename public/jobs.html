@@ -52,6 +52,7 @@
         </div>
       </div>
     </nav>
+    <!-- Counter Card -->
     <div class="counter card">
       <div class="card-content">
         <p id = "appliedCount" > 0</p>
@@ -63,30 +64,19 @@
         
       </div>
     </div>
+    <!-- Containers -->
     <section class="hero is-fullheight has-background-dark">
       <div>
         <button id="new-job-DOM">New Job</button>
       </div>
       <div class="columns wrapper job-board">
         <div id="applied-DOM" class="column container border-styling dragula-container">
-          <!--<div class="job-card-DOM card">
-            <div class="card-content">
-              <p>Company: Apple</p>
-              <p>Title: Software Engineer</p>
-              <p>Date Applied: 10/30/20</p>
-              <p>Applied</p>
-            </div>
-          </div>-->
         </div>
-
         <div id="phone-DOM" class="column container border-styling dragula-container">
-          <!--<div class="job-card-DOM"></div>-->
         </div>
         <div id="interviewing-DOM" class="column container border-styling dragula-container">
-          <!--<div class="job-card-DOM">item 3</div>-->
         </div>
         <div id="offer-DOM" class="column container border-styling dragula-container">
-          <!--<div class="job-card-DOM">item 4</div>-->
         </div>
       </div>
       <div class="columns wrapper">
@@ -108,9 +98,11 @@
           </header>
           <section class="modal-card-body">
             <form>
-              <label for="new-company">Name of Company:</label>
-              <input type="text" id="new-company" name="new-company" /><br />
-              <label for="new-title">Title of Job:</label>
+              <label for="new-company">Company:</label>
+              <input type="text" id="new-company" name="new-company" />
+              <br>
+              <br>
+              <label for="new-title">Job Title:</label>
               <input type="text" id="new-title" name="new-title" />
             </form>
           </section>

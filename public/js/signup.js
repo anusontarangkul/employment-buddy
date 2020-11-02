@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //signup button event listener/checking if the passwords match/ creating users
     $("#signup-button").on("click", function (event) {
         event.preventDefault();
         $("#alert").empty();
@@ -7,7 +8,6 @@ $(document).ready(function () {
             email: $("input#email").val().trim(),
             password: $("input#password").val().trim()
         };
-        //console.log(userData);
         if (!userData.email || !userData.password) {
             $("#alert").append("<p>Feild Empty</p>");
             emptyFeilds();
@@ -34,6 +34,7 @@ $(document).ready(function () {
         }
 
     });
+    //this empties the fields after button is pressed
     function emptyFeilds() {
         $("input#email").val("");
         $("input#password").val("");

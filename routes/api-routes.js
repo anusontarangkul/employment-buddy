@@ -2,11 +2,11 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-
+// Getting user information from login form
 app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
     });
-
+//User creation
 app.post("/api/signup", function(req, res) {
     db.User.create({
         email: req.body.email,
@@ -18,9 +18,8 @@ app.post("/api/signup", function(req, res) {
         res.status(401).json(err);
         });
     });
-
+//Jobs Creation
 app.post("/api/user/jobs", function(req, res){
-    //console.log(req.user.id);
     db.Job.create({
         title: req.body.title,
         company: req.body.company,
@@ -31,7 +30,7 @@ app.post("/api/user/jobs", function(req, res){
         res.json(results)
     })
 });   
-
+//Getting User information
 app.get("/api/user_data", function(req, res){
     db.Job.findAll({ 
       where:{
@@ -41,7 +40,7 @@ app.get("/api/user_data", function(req, res){
         res.json(results);
     })
 });
-
+//Updating Job Status
 app.put("/api/update_status", function(req, res){
     db.Job.update(
         { status: req.body.status },
@@ -50,7 +49,7 @@ app.put("/api/update_status", function(req, res){
         res.status(200).end();
     });
 });
-
+//logging out user
 app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
