@@ -30,9 +30,9 @@
           aria-expanded="false"
           data-target="navbarBasicExample"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span id="burger" aria-hidden="true"></span>
+          <span id="burger" aria-hidden="true"></span>
+          <span id="burger" aria-hidden="true"></span>
         </a>
       </div>
 
@@ -95,8 +95,8 @@
               <i class="fas fa-user user-icon"></i>
             </div>
             <div>
-              <h5 id="user-text">Username</h5>
-              <input class="input" type="text" />
+              <h5 id="user-text">Email:</h5>
+              <input id="email" name="email" autocomplete="off" class="input" type="text" />
             </div>
           </div>
           <div class="input-div password-div">
@@ -105,7 +105,7 @@
             </div>
             <div>
               <h5>Password</h5>
-              <input class="input" type="password" />
+              <input id="password" name="password" autocomplete="off" class="input" type="password" />
             </div>
           </div>
           <button

@@ -187,7 +187,7 @@ $(document).ready(function(){
                 rejectedCounter++;
             }
         }
-        //$("#appliedCount").text("Applied: "+appliedCounter);
+        $("#appliedCount").text("No Response: "+appliedCounter);
         $("#phoneCount").text("Phone Interviews: "+phoneCounter);
         $("#interviewCount").text("Interviews: "+interviewCounter);
         $("#offerCount").text("Offer: "+offerCounter);
