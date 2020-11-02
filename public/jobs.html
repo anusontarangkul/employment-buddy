@@ -56,88 +56,97 @@
         </div>
       </div>
     </nav>
-    <!-- Counter Card -->
-    <div class="columns">
-      <div class="column">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-header-title is-centered">
-              <p>No Response</p>
+    <section class="hero is-fullheight has-background-light">
+      <!-- Counter Card -->
+      <div class="columns dashboard has-background-light">
+        <div class="column">
+          <div class="card card-border">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>No Response</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
             </div>
           </div>
-          <div class="card-content">
-            <p class="has-text-centered" id="appliedCount">0</p>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Phone Screen</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Interviews</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Offers</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Rejected</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header has-background-primary">
+              <div class="card-header-title is-centered">
+                <p>Total Applied</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="has-text-centered count-size" id="appliedCount">0</p>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="column">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-header-title is-centered">
-              <p>Phone Screen</p>
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="has-text-centered" id="appliedCount">0</p>
-          </div>
-        </div>
+      <div>
+        <button
+          class="new-job-button has-text-weight-bold has-text-centered"
+          id="new-job-DOM"
+        >
+          New Job
+        </button>
       </div>
 
-      <div class="column">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-header-title is-centered">
-              <p>Interviews</p>
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="has-text-centered" id="appliedCount">0</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-header-title is-centered">
-              <p>Offers</p>
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="has-text-centered" id="appliedCount">0</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-header-title is-centered">
-              <p>Rejected</p>
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="has-text-centered" id="appliedCount">0</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-header-title is-centered">
-              <p>Total Applied</p>
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="has-text-centered" id="appliedCount">0</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div class="counter card">
+      <!-- <div class="counter card">
       <div class="card-content">
         <p id="appliedCount">0</p>
         <p id="phoneCount">0</p>
@@ -147,11 +156,8 @@
         <p id="totalCount">0</p>
       </div>
     </div> -->
-    <!-- Containers -->
-    <section class="hero is-fullheight has-background-dark">
-      <div>
-        <button id="new-job-DOM">New Job</button>
-      </div>
+      <!-- Containers -->
+      <!-- <section class="hero is-fullheight has-background-dark"> -->
       <div class="columns wrapper job-board">
         <div
           id="applied-DOM"

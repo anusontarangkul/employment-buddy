@@ -205,9 +205,8 @@ form {
   color: #d9d9d9;
 }
 
-#burger{
-background-color: white;
-
+#burger {
+  background-color: white;
 }
 
 .input-div > div {
@@ -318,4 +317,26 @@ background-color: white;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+/* jobs */
+.dashboard {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 0.5rem;
+}
+
+.count-size {
+  font-size: 2rem;
+}
+
+.new-job-button {
+  height: 3rem;
+  width: 10rem;
+  font-size: 1.3rem;
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+  margin-left: 2rem;
+  background-image: linear-gradient(to right, #209ced, #6acefd, #209ced);
 }
