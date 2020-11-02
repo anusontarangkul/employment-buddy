@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    //login button event listener
     $("#login-button").on("click", function (event) {
         event.preventDefault();
         $("#alert").empty();
@@ -8,7 +8,6 @@ $(document).ready(function () {
             email: $("input#email").val().trim(),
             password: $("input#password").val().trim()
         };
-        //console.log(userData);
         if (!userData.email) {
             $("#alert").append("<p>Please enter a email</p>");
             return;

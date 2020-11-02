@@ -1,15 +1,14 @@
 
 $(document).ready(function(){
     renderCards();
+    //Registering Dragula drag and drop with our containers
     var drake = dragula([document.querySelector('#applied-DOM'), 
             document.querySelector('#phone-DOM'),
             document.querySelector('#interviewing-DOM'),
             document.querySelector('#offer-DOM'),
             document.querySelector('#rejected-DOM')]);
-        
+      //adding the "drop" event listener for updating our job status
     drake.on('drop', function(el, target, source, sibling){
-        // console.log(el.id );
-        // console.log(target.id);
         var id = el.id;
         var status = target.id;
         if(status==="applied-DOM"){
@@ -28,6 +27,7 @@ $(document).ready(function(){
             updateStatus(id, "rejected");
         }
     });
+    //"PUT" ajax call to our SQL server for updating job status
     function updateStatus(id, status){
         $.ajax("/api/update_status", {
             type: "PUT",
@@ -39,13 +39,12 @@ $(document).ready(function(){
             .then(function(data) {
                 console.log("status updated");
                 location.reload();
-                //window.location.reload();
             })
             .catch(function(err){
                 console.log(err);
             });
     }
-
+    //adding Modal with Bulma.io
     class BulmaModal {
         constructor(selector) {
             this.elem = document.querySelector(selector)
@@ -108,13 +107,11 @@ $(document).ready(function(){
     mdl.addEventListener("modal:close", function () {
         console.log("closed")
     })
-
+//creating a new job
     $("#submitJob").on("click", function(event) {
         console.log("makeing job");
         var newCompany = $("#new-company").val().trim();
         var newTitle = $("#new-title").val().trim();
-        console.log(newCompany);
-        console.log(newTitle);
         if (newCompany === "" || newTitle === "") {
             return;
         }
@@ -126,7 +123,7 @@ $(document).ready(function(){
                 })
                 .then(function(data) {
                     console.log("added job");
-                    //window.location.reload();
+                    
                 })
                 .catch(function(err){
                     console.log(err);
@@ -135,7 +132,7 @@ $(document).ready(function(){
         location.reload();
 
     });
-
+    //creating a new card 
     function renderCards(){
         $.get("/api/user_data").then(function(data) {
             console.log(data);
@@ -163,6 +160,7 @@ $(document).ready(function(){
             }
         });
     };
+    //Status counter to track how many jobs we have in each position
     function countByStatus(data){
         var totalCount = data.length;
         var appliedCounter = 0;
@@ -186,6 +184,7 @@ $(document).ready(function(){
             else if(data[i].status === "rejected"){
                 rejectedCounter++;
             }
+           //adding text to fields in the job card 
         }
         $("#appliedCount").text("No Response: "+appliedCounter);
         $("#phoneCount").text("Phone Interviews: "+phoneCounter);
@@ -194,7 +193,7 @@ $(document).ready(function(){
         $("#rejectedCount").text("Rejected: "+rejectedCounter);
         $("#totalCount").text("Total Applied: "+totalCount);
     }
-
+    //defining the HTMl structure of our dynamically created cards
     function makeCard(id, title, company, status, createdAt, updatedDate){
         var card = `
         <div id = '${id}'class="job-card-DOM card">
@@ -208,7 +207,7 @@ $(document).ready(function(){
         `;
         return card;
     };
-
+    //formatting the date provided with passport to a readable level
     function formatDate(toSplitDate){
         var splitDate = toSplitDate.split("");
         var date = splitDate[5]+splitDate[6]+"/"+splitDate[8]+splitDate[9]+"/"+splitDate[2]+splitDate[3];
