@@ -19,7 +19,7 @@
       <div class="navbar-brand">
         <a
           class="navbar-item has-text-weight-bold nav-logo has-text-white"
-          href="https://bulma.io"
+          href="/"
           >Employment Buddy
         </a>
 
@@ -30,9 +30,9 @@
           aria-expanded="false"
           data-target="navbarBasicExample"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span id="burger" aria-hidden="true"></span>
+          <span id="burger" aria-hidden="true"></span>
+          <span id="burger" aria-hidden="true"></span>
         </a>
       </div>
 
@@ -73,7 +73,7 @@
             </div>
             <div>
               <h5 id="user-text">Enter Email Address</h5>
-              <input class="input" type="text" />
+              <input id="email" name="email" autocomplete="off" class="input" type="text" />
             </div>
           </div>
           <div class="input-div password-div">
@@ -82,7 +82,7 @@
             </div>
             <div>
               <h5>Enter Password</h5>
-              <input class="input" type="password" />
+              <input id="password" name ="password" autocomplete="off" class="input" type="password" />
             </div>
           </div>
           <div class="input-div password-div">
@@ -91,12 +91,12 @@
             </div>
             <div>
               <h5>Confirm Password</h5>
-              <input class="input" type="password" />
+              <input id ="re-password" name="re-password" autocomplete="off" class="input" type="password" />
             </div>
           </div>
 
           <button
-            id="login-button"
+            id="signup-button"
             class="signup-btn-page has-text-weight-bold has-text-centered"
           >
             Create Account
