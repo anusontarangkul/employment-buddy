@@ -138,8 +138,8 @@ $(document).ready(function(){
 
     function renderCards(){
         $.get("/api/user_data").then(function(data) {
-            console.log("thing")
             console.log(data);
+            countByStatus(data);
             for(i=0; i<data.length; i++){
                 var createdDate = formatDate(data[i].createdAt);
                 var updatedDate = formatDate(data[i].updatedAt);
@@ -163,6 +163,37 @@ $(document).ready(function(){
             }
         });
     };
+    function countByStatus(data){
+        var totalCount = data.length;
+        var appliedCounter = 0;
+        var phoneCounter  = 0;
+        var interviewCounter = 0;
+        var offerCounter = 0;
+        var rejectedCounter = 0;
+        for(var i = 0; i<data.length; i++){
+            if(data[i].status === "applied"){
+                appliedCounter++;
+            }
+            else if(data[i].status === "phone-screen"){
+                phoneCounter++;
+            }
+            else if(data[i].status === "interviewing"){
+                interviewCounter++;
+            }
+            else if(data[i].status === "offer"){
+                offerCounter++;
+            }
+            else if(data[i].status === "rejected"){
+                rejectedCounter++;
+            }
+        }
+        //$("#appliedCount").text("Applied: "+appliedCounter);
+        $("#phoneCount").text("Phone Interviews: "+phoneCounter);
+        $("#interviewCount").text("Interviews: "+interviewCounter);
+        $("#offerCount").text("Offer: "+offerCounter);
+        $("#rejectedCount").text("Rejected: "+rejectedCounter);
+        $("#totalCount").text("Total Applied: "+totalCount);
+    }
 
     function makeCard(id, title, company, status, createdAt, updatedDate){
         var card = `
