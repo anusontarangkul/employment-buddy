@@ -205,6 +205,11 @@ form {
   color: #d9d9d9;
 }
 
+#burger{
+background-color: white;
+
+}
+
 .input-div > div {
   position: relative;
   height: 45px;
