@@ -187,12 +187,19 @@ $(document).ready(function () {
                 rejectedCounter++;
             }
         }
-        $("#appliedCount").text("No Response: " + appliedCounter);
-        $("#phoneCount").text("Phone Screens: " + phoneCounter);
-        $("#interviewCount").text("Interviews: " + interviewCounter);
-        $("#offerCount").text("Offers: " + offerCounter);
-        $("#rejectedCount").text("Rejected: " + rejectedCounter);
-        $("#totalCount").text("Total Applied: " + totalCount);
+        $("#appliedCount").text(appliedCounter);
+        $("#phoneCount").text(phoneCounter);
+        $("#interviewCount").text(interviewCounter);
+        $("#offerCount").text(offerCounter);
+        $("#rejectedCount").text(rejectedCounter);
+        $("#totalCount").text(totalCount);
+
+        // $("#appliedCount").text("No Response: " + appliedCounter);
+        // $("#phoneCount").text("Phone Screens: " + phoneCounter);
+        // $("#interviewCount").text("Interviews: " + interviewCounter);
+        // $("#offerCount").text("Offers: " + offerCounter);
+        // $("#rejectedCount").text("Rejected: " + rejectedCounter);
+        // $("#totalCount").text("Total Applied: " + totalCount);
     }
 
     function makeCard(id, title, company, status, createdAt, updatedDate) {
