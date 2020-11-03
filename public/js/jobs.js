@@ -202,25 +202,11 @@ $(document).ready(function () {
         $("#rejectedCount").text(rejectedCounter);
         $("#totalCount").text(totalCount);
 
-        // $("#appliedCount").text("No Response: "+appliedCounter);
-        // $("#phoneCount").text("Phone Interviews: "+phoneCounter);
-        // $("#interviewCount").text("Interviews: "+interviewCounter);
-        // $("#offerCount").text("Offer: "+offerCounter);
-        // $("#rejectedCount").text("Rejected: "+rejectedCounter);
-        // $("#totalCount").text("Total Applied: "+totalCount);
+
     }
     //defining the HTMl structure of our dynamically created cards
     function makeCard(id, title, company, status, createdAt, updatedDate) {
-        // var card = `
-        // <div id = '${id}'class="job-card-DOM card">
-        //     <div class="card-content">
-        //         <p>Company: ${company}</p>
-        //         <p>Title: ${title}</p>
-        //         <p>Date Applied: ${createdAt}</p>
-        //         <p>${status}: ${updatedDate}</p>
-        //     </div>
-        // </div>
-        // `;
+
 
         var card = ` <div id = '${id}' class="card job-card-DOM job-details">
           <div class="card-header has-background-primary">
