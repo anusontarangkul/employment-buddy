@@ -213,10 +213,10 @@ $(document).ready(function () {
         // </div>
         // `;
 
-        var card = ` <div id = '${id}' class="card job-card-DOM">
-          <div class="card-header has-background-danger">
+        var card = ` <div id = '${id}' class="card job-card-DOM job-details">
+          <div class="card-header has-background-primary">
             <div class="card-header-title is-centered">
-              <p>${company}</p>
+              <p class="job-title">${company}</p>
             </div>
           </div>
           <div class="card-content">

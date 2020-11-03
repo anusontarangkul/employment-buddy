@@ -345,3 +345,11 @@ form {
 .status-headers {
   font-size: 2rem;
 }
+
+.job-title {
+  font-size: 1.3rem;
+}
+
+.job-details {
+  margin-top: 1rem;
+}
