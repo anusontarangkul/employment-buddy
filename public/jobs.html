@@ -46,12 +46,8 @@
           <div class="navbar-item">
             <div class="buttons">
               <a
-<<<<<<< HEAD
-                class="button has-background-light nav-button has-text-weight-bold" href="/logout"
-=======
-                class="button has-background-grey-light nav-button has-text-weight-bold"
+                class="button has-background-light nav-button has-text-weight-bold"
                 href="/logout"
->>>>>>> main
               >
                 Logout
               </a>
@@ -84,7 +80,7 @@
               </div>
             </div>
             <div class="card-content">
-              <p class="has-text-centered count-size" id="appliedCount">0</p>
+              <p class="has-text-centered count-size" id="phoneCount">0</p>
             </div>
           </div>
         </div>
@@ -97,7 +93,7 @@
               </div>
             </div>
             <div class="card-content">
-              <p class="has-text-centered count-size" id="appliedCount">0</p>
+              <p class="has-text-centered count-size" id="interviewCount">0</p>
             </div>
           </div>
         </div>
@@ -110,7 +106,7 @@
               </div>
             </div>
             <div class="card-content">
-              <p class="has-text-centered count-size" id="appliedCount">0</p>
+              <p class="has-text-centered count-size" id="offerCount">0</p>
             </div>
           </div>
         </div>
@@ -123,7 +119,7 @@
               </div>
             </div>
             <div class="card-content">
-              <p class="has-text-centered count-size" id="appliedCount">0</p>
+              <p class="has-text-centered count-size" id="rejectedCount">0</p>
             </div>
           </div>
         </div>
@@ -136,7 +132,7 @@
               </div>
             </div>
             <div class="card-content">
-              <p class="has-text-centered count-size" id="appliedCount">0</p>
+              <p class="has-text-centered count-size" id="totalCount">0</p>
             </div>
           </div>
         </div>
@@ -150,41 +146,50 @@
         </button>
       </div>
 
-      <!-- <div class="counter card">
-      <div class="card-content">
-        <p id="appliedCount">0</p>
-        <p id="phoneCount">0</p>
-        <p id="interviewCount">0</p>
-        <p id="offerCount">0</p>
-        <p id="rejectedCount">0</p>
-        <p id="totalCount">0</p>
-      </div>
-    </div> -->
-      <!-- Containers -->
-      <!-- <section class="hero is-fullheight has-background-dark"> -->
       <div class="columns wrapper job-board">
         <div
           id="applied-DOM"
-          class="column container border-styling dragula-container"
+          class="column container border-styling dragula-container has-background-info-light"
         >
-          <h2 class="has-text-centered">Applied Jobs</h2>
+          <h2 class="has-text-centered has-text-weight-bold status-headers">
+            Applied Jobs
+          </h2>
         </div>
         <div
           id="phone-DOM"
-          class="column container border-styling dragula-container"
-        ></div>
+          class="column container border-styling dragula-container has-background-info-light"
+        >
+          <h2 class="has-text-centered has-text-weight-bold status-headers">
+            Phone Screen
+          </h2>
+        </div>
         <div
           id="interviewing-DOM"
-          class="column container border-styling dragula-container"
-        ></div>
+          class="column container border-styling dragula-container has-background-info-light"
+        >
+          <h2 class="has-text-centered has-text-weight-bold status-headers">
+            Interviews
+          </h2>
+        </div>
         <div
           id="offer-DOM"
-          class="column container border-styling dragula-container"
-        ></div>
+          class="column container border-styling dragula-container has-background-info-light"
+        >
+          <h2 class="has-text-centered has-text-weight-bold status-headers">
+            Offers
+          </h2>
+        </div>
       </div>
       <div class="columns wrapper">
-        <div id="rejected-DOM" class="column container border-styling">
-          <div class="job-card-DOM">rejected</div>
+        <div
+          id="rejected-DOM"
+          class="column has-background-danger-light is-half container border-styling"
+        >
+          <div class="job-card-DOM">
+            <h2 class="has-text-centered has-text-weight-bold status-headers">
+              Rejected
+            </h2>
+          </div>
         </div>
       </div>
       <!-- Modal -->
@@ -202,21 +207,27 @@
           <section class="modal-card-body">
             <form>
               <label for="new-company">Company:</label>
-              <input type="text" id="new-company" name="new-company" />
+              <input
+                type="text"
+                id="new-company"
+                name="new-company"
+                autocomplete="off"
+              />
               <br />
               <br />
               <label for="new-title">Job Title:</label>
-              <input type="text" id="new-title" name="new-title" />
+              <input
+                type="text"
+                id="new-title"
+                name="new-title"
+                autocomplete="off"
+              />
             </form>
           </section>
           <footer class="modal-card-foot">
-<<<<<<< HEAD
-            <button id = "submitJob" class="button is-primary">Save changes</button>
-=======
             <button id="submitJob" class="button is-success">
               Add New Job
             </button>
->>>>>>> main
             <button class="button" data-bulma-modal="close">Cancel</button>
           </footer>
         </div>
