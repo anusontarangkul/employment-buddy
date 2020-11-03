@@ -35,7 +35,7 @@ $(document).ready(function () {
         var month = today.getMonth();
         if (month < 10) month = "0" + month;
         var year = today.getFullYear();
-        $(`#status${id}`).text(`${status}: ${month}/${day}/${year}`);
+        $(`#status${id}`).text(`Last Updated: ${month}/${day}/${year}`);
         $.ajax("/api/update_status", {
             type: "PUT",
             data: {
@@ -231,7 +231,7 @@ $(document).ready(function () {
           <div class="card-content">
             <p>Title: ${title}</p>
             <p>Date Applied: ${createdAt}</p>
-            <p id = “status${id}“>${status}: ${updatedDate}</p>
+            <p id = “status${id}“>Last Updated: ${updatedDate}</p>
           </div>
         </div>`
         return card;
