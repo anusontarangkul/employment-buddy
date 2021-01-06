@@ -1,5 +1,7 @@
 # Employment Buddy
 
+This app helps you stay organized for your job hunt 📊
+
 [Deployment](https://employmentbuddy.herokuapp.com/)
 
 ![badmath](https://img.shields.io/github/issues/anusontarangkul/employment-buddy)
